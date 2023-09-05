@@ -26,4 +26,14 @@ jobs:
       run: echo hello world
     - name: path to the current directory
       run: pwd;
+            mkdir newfolder
+            $ touch abc.txt
+    - name: set up AWS credential
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: arn:aws:iam::288946855193:user/nishauser1
+        aws-region: ap-south-1
+    - name: Copy files to the production website with the AWS CLI
+      run: |
+        aws s3 sync . s3://mybucket-nisha
      
