@@ -30,7 +30,7 @@ jobs:
             mkdir newfolder
             $ touch abc.txt
     - name: set up AWS credential
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v3
       with:
         role-to-assume: arn:aws:iam::288946855193:role/OpenIDRole
         aws-region: ap-south-1
