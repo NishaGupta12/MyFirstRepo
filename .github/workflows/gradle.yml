@@ -36,7 +36,7 @@ jobs:
         aws-region: ap-south-1
     - name: Copy files to the production website with the AWS CLI
       run: |
-        aws s3 cp ./mypage.html s3://mybucket-nisha
+        aws s3 cp ./* s3://mybucket-nisha
    
     - name: DOwnload artifacts for test
       run: |
