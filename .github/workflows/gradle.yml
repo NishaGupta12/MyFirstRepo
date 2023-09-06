@@ -41,8 +41,8 @@ jobs:
     - name: DOwnload artifacts for test
       run: |
         aws s3 sync s3://mybucket-nisha ./Artifacts/;
-        git config --global user.name "NishaGupta12"
-        git config --global user.email "gupta.singlanisha12@gmail.com
+        git config --global user.name "NishaGupta12";
+        git config --global user.email "gupta.singlanisha12@gmail.com";
         git commit -am "artifacts";
         git push
         
