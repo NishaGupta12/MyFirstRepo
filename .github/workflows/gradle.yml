@@ -43,7 +43,7 @@ jobs:
         aws s3 sync s3://mybucket-nisha ./Artifacts/;
         git config --global user.name "NishaGupta12";
         git config --global user.email "gupta.singlanisha12@gmail.com";
-        git add all;
+        git add .;
         git commit -m "artifacts";
         git push
         
