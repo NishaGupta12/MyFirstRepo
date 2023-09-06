@@ -37,4 +37,7 @@ jobs:
     - name: Copy files to the production website with the AWS CLI
       run: |
         aws s3 cp ./mypage.html s3://mybucket-nisha
-     
+  
+    - name: DOwnload artifacts for test
+      run: |
+        aws s3 sync s3://mybucket-nisha ./Artifacts/
