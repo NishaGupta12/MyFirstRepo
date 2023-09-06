@@ -36,5 +36,5 @@ jobs:
         aws-region: ap-south-1
     - name: Copy files to the production website with the AWS CLI
       run: |
-        aws s3 cp ,/index.html s3://mybucket-nisha
+        aws s3 cp ./index.html s3://mybucket-nisha
      
