@@ -9,7 +9,7 @@ name: Simple uploading artifacts on to S3
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" ] 
 
 
 permissions:
