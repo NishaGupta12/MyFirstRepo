@@ -7,7 +7,7 @@
 
 name: uploading and downloading artifacts on to S3 
 
-on:
+on: 
   push:
     branches: [ "main" ] 
 
