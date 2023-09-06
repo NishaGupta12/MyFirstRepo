@@ -34,10 +34,13 @@ jobs:
       with:
         role-to-assume: arn:aws:iam::288946855193:role/OpenIDRole
         aws-region: ap-south-1
-    - name: Copy files to the production website with the AWS CLI
+    - name: upload Artifacts
       run: |
         aws s3 cp ./Artifacts/* s3://mybucket-nisha
    
     - name: DOwnload artifacts for test
       run: |
-        aws s3 sync s3://mybucket-nisha ./Artifacts/
+        aws s3 sync s3://mybucket-nisha ./Artifacts/;
+        git commit -am "artifacts";
+        git push
+        
