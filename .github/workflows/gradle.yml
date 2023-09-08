@@ -30,7 +30,7 @@ jobs:
         name: MyArtifacts
         path: Artifacts/
     - name: zip artifacts
-      run: zip -r LRartifacts.zip ./Artifacts
+      run: zip -r LRartifacts.zip ./Artifacts/*
     - name: set up AWS credential
       uses: aws-actions/configure-aws-credentials@v3
       with:
