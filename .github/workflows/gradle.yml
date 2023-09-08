@@ -39,7 +39,7 @@ jobs:
         
     - name: upload Artifacts
       run: |
-        aws s3 cp ./Artifacts/ s3://mybucket-nisha/Artifacts/
+        aws s3 cp ./Artifacts/ s3://mybucket-nisha/MyArtifacts-nisha/
    
     - name: DOwnload artifacts for test
       run: |
