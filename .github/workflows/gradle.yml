@@ -29,6 +29,11 @@ jobs:
       run: pwd;
             mkdir newfolder
             $ touch abc.txt
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: MyArtifacts
+        path: Artifacts/
     - name: set up AWS credential
       uses: aws-actions/configure-aws-credentials@v3
       with:
