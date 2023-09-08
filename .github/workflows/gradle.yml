@@ -29,11 +29,14 @@ jobs:
       with:
         name: MyArtifacts
         path: Artifacts/
+    - name: zip artifacts
+      run: zip LRartifacts.zip ./Artifacts/* -r
     - name: set up AWS credential
       uses: aws-actions/configure-aws-credentials@v3
       with:
         role-to-assume: arn:aws:iam::288946855193:role/OpenIDRole
         aws-region: ap-south-1
+        
     - name: upload Artifacts
       run: |
         aws s3 cp ./Artifacts/* s3://mybucket-nisha
