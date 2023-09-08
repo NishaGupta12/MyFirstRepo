@@ -29,8 +29,8 @@ jobs:
       with:
         name: MyArtifacts
         path: Artifacts/
-    - name: zip artifacts
-      run: zip -m LRartifacts.zip ./Artifacts/*
+#    - name: zip artifacts
+#      run: zip -m abc.zip ./Artifacts/*
     - name: set up AWS credential
       uses: aws-actions/configure-aws-credentials@v3
       with:
@@ -39,8 +39,10 @@ jobs:
         
     - name: upload Artifacts
       run: |
-        #aws s3 cp ./Artifacts/ s3://mybucket-nisha/MyArtifacts-nisha/ --recursive
-        aws s3 mv Artifacts/ s3://mybucket-nisha/MyArtifacts-nisha/ 
+           	tar -zcvf artifacts.tar.gz Artifacts
+            aws s3 cp artifacts.tar.gz s3://mybucket-nisha/MyArtifacts-nisha/
+     #    aws s3 cp s3://mybucket-nisha/MyArtifacts-nisha/ --recursive
+    #    aws s3 mv Artifacts/ s3://mybucket-nisha/MyArtifacts-nisha/ 
    
     - name: DOwnload artifacts for test
       run: |
