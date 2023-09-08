@@ -25,11 +25,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: run a shell command
       run: echo hello world
-    - name: path to the current directory
-      run: pwd;
-            mkdir newfolder
-            $ touch abc.txt
-
     - uses: actions/upload-artifact@v3
       with:
         name: MyArtifacts
@@ -46,9 +41,4 @@ jobs:
     - name: DOwnload artifacts for test
       run: |
         aws s3 sync s3://mybucket-nisha ./Artifacts/;
-        git config --global user.name "NishaGupta12";
-        git config --global user.email "gupta.singlanisha12@gmail.com";
-        git add .;
-        git commit -m "artifacts"; 
-        git push
-        
+
