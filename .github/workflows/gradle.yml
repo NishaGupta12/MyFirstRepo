@@ -40,7 +40,7 @@ jobs:
         
     - name: upload Artifacts
       run: |         	
-          aws s3 cp artifacts.tar.gz s3://mybucket-nisha/MyArtifacts-nisha/
+          aws s3 cp *.tar.gz s3://mybucket-nisha/MyArtifacts-nisha/
      #    aws s3 cp s3://mybucket-nisha/MyArtifacts-nisha/ --recursive
     #    aws s3 mv Artifacts/ s3://mybucket-nisha/MyArtifacts-nisha/ 
    
