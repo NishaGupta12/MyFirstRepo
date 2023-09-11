@@ -30,9 +30,9 @@ jobs:
         name: MyArtifacts
         path: Artifacts/
     - name: zip artifacts
-      run: tar -zcvf artifacts.tar.gz Artifacts;
+      run: name=$(date '+%Y-%m-%d');
+           tar -zcvf artifacts.tar.gz Artifacts;
           
-#zip -m abc.zip ./Artifacts/*
     - name: set up AWS credential
       uses: aws-actions/configure-aws-credentials@v3
       with:
