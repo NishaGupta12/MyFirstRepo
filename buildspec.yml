@@ -3,13 +3,13 @@ phases:
   install:
 
     commands:
-      - npm install -g @angular/cli@9.0.6
+      
   pre_build:
     commands:
-      - npm install
+     
   build:
     commands:
-      - ng build --prod
+     
     finally:
       - echo This is the finally block execution!
 artifacts:
