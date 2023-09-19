@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /mybucket-nisha
+  - source: ./mybucket-nisha
     destination: /opt/Artifacts
 permissions:
   - object: /var/www/my-angular-project
