@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  - source: dist/my-angular-project
-    destination: /var/www/my-angular-project
+  - source: /mybucket-nisha
+    destination: /opt/Artifacts
 permissions:
   - object: /var/www/my-angular-project
     pattern: '**'
