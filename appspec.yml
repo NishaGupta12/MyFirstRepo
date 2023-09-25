@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: ./mybucket-nisha
+  - source: ./rainbow-b2/
     destination: /opt/Artifacts
 permissions:
   - object: /var/www/my-angular-project
@@ -14,6 +14,6 @@ permissions:
       - directory
 hooks:
   ApplicationStart:
-    - location: deploy-scripts/application-start-hook.sh
+#    - location: deploy-scripts/application-start-hook.sh
       timeout: 300
-      
+    - echo "APllication start"
