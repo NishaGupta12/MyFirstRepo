@@ -4,9 +4,6 @@ files:
   - source: ./rainbow-b2/
     destination: /opt/Artifacts
 permissions:
-  - object: /var/www/my-angular-project
-    pattern: '**'
-    mode: '0755'
     owner: root
     group: root
     type:
@@ -14,6 +11,6 @@ permissions:
       - directory
 hooks:
   ApplicationStart:
-#    - location: deploy-scripts/application-start-hook.sh
+    - location: deploy-scripts/ApplicationStart.sh
       timeout: 300
     - echo "APllication start"
