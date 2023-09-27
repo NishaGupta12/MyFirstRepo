@@ -10,7 +10,8 @@ permissions:
       - file
       - directory
 hooks:
+  BeforeInstall:
+    - location: deploy-scripts/BeforeInstall.sh
   ApplicationStart:
     - location: deploy-scripts/ApplicationStart.sh
-      timeout: 300
-    - echo "APllication start"
+  
