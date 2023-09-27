@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: ./rainbow-b2/
+  - source: /
     destination: /opt/Artifacts
 hooks:
   BeforeInstall:
