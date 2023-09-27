@@ -1,4 +1,4 @@
 #!bin/bash
 
 
-sudo service nignx restart
+echo "Application Start"
