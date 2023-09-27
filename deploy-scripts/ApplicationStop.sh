@@ -1,3 +1,3 @@
 #!bin/bash
 
-sudo service nginx stop
+echo "Application Stop"
