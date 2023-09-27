@@ -1,6 +1,11 @@
 version: 0.2
-phases:
-  
+env:
+  parameter-store:
+     JDBClass: dev/JDBC:driverClassName
+     JDBCUrl: dev/JDBC:url
+     JDBCUser: dev/JDBC:username
+     JDBCPassword: dev/JDBC:Password
+phases:  
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
@@ -10,7 +15,15 @@ phases:
      
   post_build:
     commands:
-      - echo Build completed on 'date'
+     post_build:
+    commands:
+      - echo $JDBCUser
+      - cp env.properties /opt/rainbow-v1/env.properties
+      - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
+      - sed -i "s/JDBCPassword/$JDBCPassword/g" env.properties
+      - tail env.properties
+      - mv env.properties
+      
     finally:
       - echo This is the finally block execution!
 artifacts:
