@@ -3,12 +3,6 @@ os: linux
 files:
   - source: ./rainbow-b2/
     destination: /opt/Artifacts
-permissions:
-    owner: root
-    group: root
-    type:
-      - file
-      - directory
 hooks:
   BeforeInstall:
     - location: deploy-scripts/BeforeInstall.sh
