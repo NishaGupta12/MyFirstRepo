@@ -15,8 +15,6 @@ phases:
      
   post_build:
     commands:
-     post_build:
-    commands:
       - echo $JDBCUser
       - cp env.properties /opt/rainbow-v1/env.properties
       - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
