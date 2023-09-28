@@ -1,10 +1,10 @@
 version: 0.2
 env:
   parameter-store:
-     JDBClass: jdbc:default:driverClassName
-     JDBCUrl: jdbc:default:url
-     JDBCUser: jdbc:default:username
-     JDBCPassword: jdbc:default:Password
+     JDBClass: jdbc/default/driverClassName
+     JDBCUrl: jdbc/default/url
+     JDBCUser: jdbc/default/username
+     JDBCPassword: jdbc/default/Password
 phases:  
   pre_build:
     commands:
@@ -20,7 +20,7 @@ phases:
       - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
       - sed -i "s/JDBCPassword/$JDBCPassword/g" env.properties
       - tail env.properties
-      - mv env.properties
+      - mv env.properties /opt/rainbow-v1
       
     finally:
       - echo This is the finally block execution!
