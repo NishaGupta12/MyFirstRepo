@@ -23,7 +23,7 @@ phases:
       - sed -i "s/JDBCUrl/$JDBCUrl/g" env.properties
       - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
       - sed -i "s/JDBCPassword/$JDBCPassword/g" env.properties
-      - tail -5 env.properties
+      - tail -25 env.properties
       - mv env.properties Artifacts/
       
     finally:
