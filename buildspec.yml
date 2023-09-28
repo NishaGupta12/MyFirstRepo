@@ -16,7 +16,7 @@ phases:
   post_build:
     commands:
       - echo $JDBCUser
-      - cp env.properties /opt/rainbow-v1/env.properties
+      - echo $JDBClass
       - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
       - sed -i "s/JDBCPassword/$JDBCPassword/g" env.properties
       - tail env.properties
