@@ -20,7 +20,7 @@ phases:
       - echo $JDBClass
       - echo $JDBCPassword
       - sed -i "s/JDBClass/$JDBClass/g" env.properties
-      - sed -i "s/JDBCUrl/$JDBCUrl/g" env.properties
+   #   - sed -i "s/JDBCUrl/$JDBCUrl/g" env.properties
       - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
       - sed -i "s/JDBCPassword/$JDBCPassword/g" env.properties
       - tail -25 env.properties
