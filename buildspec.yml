@@ -20,7 +20,7 @@ phases:
       - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
       - sed -i "s/JDBCPassword/$JDBCPassword/g" env.properties
       - tail env.properties
-      - mv env.properties /opt/rainbow-v1
+      - mv env.properties Artifacts/
       
     finally:
       - echo This is the finally block execution!
