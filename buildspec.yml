@@ -1,10 +1,10 @@
 version: 0.2
 env:
   parameter-store:
-     JDBClass: jdbc/default/driverClassName
-     JDBCUrl: jdbc/default/url
-     JDBCUser: jdbc/default/username
-     JDBCPassword: jdbc/default/password
+     JDBClass: "/jdbc/default/driverClassName"
+     JDBCUrl: "/jdbc/default/url"
+     JDBCUser: "/jdbc/default/username"
+     JDBCPassword: "/jdbc/default/password"
 phases:  
   pre_build:
     commands:
