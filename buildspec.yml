@@ -5,6 +5,9 @@ env:
      JDBCUrl: "/jdbc/default/url"
      JDBCUser: "/jdbc/default/username"
      JDBCPassword: "/jdbc/default/password"
+  secret-manager:
+    HTS_MHSReg: "hts.myhearst.services.region"
+    HTS_MHSEnv: "hts.myhearst.services.environment"
 phases:  
   pre_build:
     commands:
@@ -19,6 +22,11 @@ phases:
       - echo $JDBCUser
       - echo $JDBClass
       - echo $JDBCPassword
+      - echo $HTS_MHSReg
+      - echo $HTS_MHSEnv
+
+      - sed -i "s/HTS_MHSReg/$HTS_MHSReg/g" env.properties
+      - sed -i "s/HTS_MHSEnv/$HTS_MHSEnv/g" env.properties
       - sed -i "s/JDBClass/$JDBClass/g" env.properties
    #   - sed -i "s/JDBCUrl/$JDBCUrl/g" env.properties
       - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
