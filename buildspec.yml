@@ -6,8 +6,8 @@ env:
      JDBCUser: "/jdbc/default/username"
      JDBCPassword: "/jdbc/default/password"
   secret-manager:
-    HTS_MHSReg: "hts.myhearst.services.region"
-    HTS_MHSEnv: "hts.myhearst.services.environment"
+    HTS_MHSReg: "RainbowCred:hts.myhearst.services.region"
+    HTS_MHSEnv: "RainbowCred:hts.myhearst.services.environment"
 phases:  
   pre_build:
     commands:
