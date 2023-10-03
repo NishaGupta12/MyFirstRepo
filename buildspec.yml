@@ -1,7 +1,7 @@
 version: 0.2
 env:
-  variables:
-     dev_env: "dev"
+#  variables:
+    # dev_env: "dev"
   parameter-store:
      JDBClass: "/jdbc/default/driverClassName"
      JDBCUrl: "/jdbc/default/url"
@@ -9,16 +9,19 @@ env:
      JDBCPassword: "/jdbc/default/password"
      
   secrets-manager:
-    HTS_MHSReg: $dev_env/RainbowCred:dev/hts.myhearst.services.region
-    HTS_MHSEnv: $dev_env/RainbowCred:dev/hts.myhearst.services.environment
+    HTS_MHSReg: RainbowCred:dev/hts.myhearst.services.region
+    HTS_MHSEnv: RainbowCred:dev/hts.myhearst.services.environment
 phases:  
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
-      - echo $dev_env
+    
   build:
     commands:
        - echo Build started on 'date'
+       - CURRENT_ENVIRONMENT=`echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]'`
+       - echo "My env is $CURRENT_ENVIRONMENT"
+
      
   post_build:
     commands:
