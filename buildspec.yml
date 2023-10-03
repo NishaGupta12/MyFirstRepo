@@ -1,13 +1,16 @@
 version: 0.2
 env:
+  variable:
+    environment="dev"
   parameter-store:
      JDBClass: "/jdbc/default/driverClassName"
      JDBCUrl: "/jdbc/default/url"
      JDBCUser: "/jdbc/default/username"
      JDBCPassword: "/jdbc/default/password"
+     
   secrets-manager:
-    HTS_MHSReg: RainbowCred:hts.myhearst.services.region
-    HTS_MHSEnv: RainbowCred:hts.myhearst.services.environment
+     HTS_MHSReg: $environment/RainbowCred:hts.myhearst.services.region
+    HTS_MHSEnv: $environment/RainbowCred:hts.myhearst.services.environment
 phases:  
   pre_build:
     commands:
