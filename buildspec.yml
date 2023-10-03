@@ -1,6 +1,6 @@
 version: 0.2
 env:
-  variable:
+  variables:
     environment="dev"
   parameter-store:
      JDBClass: "/jdbc/default/driverClassName"
