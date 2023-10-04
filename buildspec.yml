@@ -1,7 +1,8 @@
 version: 0.2
 env:
   variables:
-     dev_Env: echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]
+     dev_env: "dev"
+     env: echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]
   parameter-store:
      JDBClass: "/jdbc/default/driverClassName"
      JDBCUrl: "/jdbc/default/url"
@@ -14,8 +15,8 @@ env:
 phases:  
   pre_build:
     commands:
-        - CURRENT_ENV=`echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]'`
-        - echo "My env is $CURRENT_ENV"
+  #      - CURRENT_ENV=`echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]'`
+        - echo "My env is $env"
         - echo Nothing to do in the pre_build phase...
     
   build:
