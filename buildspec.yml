@@ -3,8 +3,8 @@ env:
   variables:
      dev_env: "dev"
   #   env: "echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]"
-  exported-variables:
-    - Environment
+#  exported-variables:
+ #   - Environment
   parameter-store:
      JDBClass: "/jdbc/default/driverClassName"
      JDBCUrl: "/jdbc/default/url"
@@ -12,7 +12,7 @@ env:
      JDBCPassword: "/jdbc/default/password"
      
   secrets-manager:
-    HTS_MHSReg: $dev_env/rainbowcred:hts.myhearst.services.region
+    HTS_MHSReg: $Environment/rainbowcred:hts.myhearst.services.region
     HTS_MHSEnv: $Environment/rainbowcred:hts.myhearst.services.environment
 phases:  
   pre_build:
