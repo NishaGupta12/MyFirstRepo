@@ -1,7 +1,7 @@
 version: 0.2
 env:
   variables:
-     dev_env: "dev"
+     dev_Env: echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]
   parameter-store:
      JDBClass: "/jdbc/default/driverClassName"
      JDBCUrl: "/jdbc/default/url"
