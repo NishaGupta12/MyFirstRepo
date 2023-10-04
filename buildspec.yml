@@ -2,7 +2,9 @@ version: 0.2
 env:
   variables:
      dev_env: "dev"
-     env: "echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]"
+  #   env: "echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]"
+  exported-variables:
+    - Environment
   parameter-store:
      JDBClass: "/jdbc/default/driverClassName"
      JDBCUrl: "/jdbc/default/url"
@@ -11,12 +13,12 @@ env:
      
   secrets-manager:
     HTS_MHSReg: $dev_env/rainbowcred:hts.myhearst.services.region
-    HTS_MHSEnv: $dev_env/rainbowcred:hts.myhearst.services.environment
+    HTS_MHSEnv: $Environment/rainbowcred:hts.myhearst.services.environment
 phases:  
   pre_build:
     commands:
   #      - CURRENT_ENV=`echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]'`
-        - echo "My env is $env"
+        - echo "My env is $Environment"
         - echo Nothing to do in the pre_build phase...
     
   build:
