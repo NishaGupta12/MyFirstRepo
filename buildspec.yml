@@ -12,8 +12,8 @@ env:
      JDBCPassword: "/jdbc/default/password"
      
   secrets-manager:
-    HTS_MHSReg: $Environment/rainbowcred:hts.myhearst.services.region
-    HTS_MHSEnv: $Environment/rainbowcred:hts.myhearst.services.environment
+   hts.myhearst.services.region: $Environment/rainbowcred:hts.myhearst.services.region
+   hts.myhearst.services.environment: $Environment/rainbowcred:hts.myhearst.services.environment
 phases:  
   pre_build:
     commands:
@@ -36,8 +36,8 @@ phases:
       - echo $HTS_MHSReg
       - echo $HTS_MHSEnv
 
-      - sed -i "s/HTS_MHSReg/$HTS_MHSReg/g" env.properties
-      - sed -i "s/HTS_MHSEnv/$HTS_MHSEnv/g" env.properties
+      - sed -i "s/hts.myhearst.services.environment/$hts.myhearst.services.environment/g" env.properties
+      - sed -i "s/hts.myhearst.services.environment/$hts.myhearst.services.environment/g" env.properties
       - sed -i "s/JDBClass/$JDBClass/g" env.properties
    #   - sed -i "s/JDBCUrl/$JDBCUrl/g" env.properties
       - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
