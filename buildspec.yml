@@ -1,6 +1,6 @@
 version: 0.2
 env:
-  variables:
+  variables
      dev_env: "QA"
   #   env: "echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]"
 #  exported-variables:
