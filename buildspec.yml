@@ -31,14 +31,7 @@ phases:
        if [ $Environment == "QA" ]; then
           echo "if condition working"
        fi    
-      - sed -i "s/HTS_MHSReg/$HTS_MHSReg/g" env.properties
-      - sed -i "s/HTS_MHSEnv/$HTS_MHSEnv/g" env.properties
-      - sed -i "s/JDBClass/$JDBClass/g" env.properties  
-      - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
-      - sed -i "s/JDBCPassword/$JDBCPassword/g" env.properties
-      - tail -25 env.properties
-      - mv env.properties Artifacts/
-      
+
     finally:
       - echo This is the finally block execution!
 artifacts:
