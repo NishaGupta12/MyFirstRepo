@@ -35,9 +35,12 @@ phases:
       - echo $JDBCPassword
       - echo $HTS_MHSReg
       - echo $HTS_MHSEnv
-
-      - sed -i "s/hts.myhearst.services.environment/$hts.myhearst.services.environment/g" env.properties
-      - sed -i "s/hts.myhearst.services.environment/$hts.myhearst.services.environment/g" env.properties
+      
+      if [$dev_env == "dev"]; then
+          - sed -i "s/hts.myhearst.services.environment/$hts.myhearst.services.environment/g" env.properties
+          - sed -i "s/hts.myhearst.services.environment/$hts.myhearst.services.environment/g" env.properties
+      fi
+      
       - sed -i "s/JDBClass/$JDBClass/g" env.properties
    #   - sed -i "s/JDBCUrl/$JDBCUrl/g" env.properties
       - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
