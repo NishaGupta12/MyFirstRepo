@@ -27,9 +27,9 @@ phases:
   post_build:
     commands:
         - |
-        if [[ "$Environment" = "QA" ]]; then
-            echo "if condition working"
-        fi   
+          if [[ "$Environment" == "QA" ]]; then 
+           echo "if condition working" 
+          fi   
 
     finally:
       - echo This is the finally block execution!
