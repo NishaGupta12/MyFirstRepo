@@ -1,10 +1,8 @@
 version: 0.2
 env:
-  variables
+  variables:
      dev_env: "QA"
-  #   env: "echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]"
-#  exported-variables:
- #   - Environment
+
   parameter-store:
      JDBClass: "/jdbc/default/driverClassName"
      JDBCUrl: "/jdbc/default/url"
@@ -35,11 +33,13 @@ phases:
       - echo $JDBCPassword
       - echo $HTS_MHSReg
       - echo $HTS_MHSEnv
-
-      - sed -i "s/HTS_MHSReg/$HTS_MHSReg/g" env.properties
-      - sed -i "s/HTS_MHSEnv/$HTS_MHSEnv/g" env.properties
+       if [$Environment == "QA"]; then
+          - sed -i "s/HTS_MHSReg/$HTS_MHSReg/g" env.properties
+          - sed -i "s/HTS_MHSEnv/$HTS_MHSEnv/g" env.properties
+       fi
+      
       - sed -i "s/JDBClass/$JDBClass/g" env.properties
-   #   - sed -i "s/JDBCUrl/$JDBCUrl/g" env.properties
+  
       - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
       - sed -i "s/JDBCPassword/$JDBCPassword/g" env.properties
       - tail -25 env.properties
