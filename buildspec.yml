@@ -33,7 +33,7 @@ phases:
       - echo $JDBCPassword
       - echo $HTS_MHSReg
       - echo $HTS_MHSEnv
-       if [$Environment == "QA"]; then
+       if [ expr $Environment : "QA" ]; then
           - sed -i "s/HTS_MHSReg/$HTS_MHSReg/g" env.properties
           - sed -i "s/HTS_MHSEnv/$HTS_MHSEnv/g" env.properties
        fi
