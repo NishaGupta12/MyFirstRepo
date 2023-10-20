@@ -15,7 +15,6 @@ env:
 phases:  
   pre_build:
     commands:
-  #      - CURRENT_ENV=`echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]'`
         - echo "My env is $Environment"
         - echo Nothing to do in the pre_build phase...
     
@@ -27,10 +26,10 @@ phases:
      
   post_build:
     commands:
-    - |
-    if [ "$Environment" = "QA" ]; then
-          echo "if condition working"
-    fi   
+        - |
+        if [ "$Environment" = "QA" ]; then
+            echo "if condition working"
+        fi   
 
     finally:
       - echo This is the finally block execution!
