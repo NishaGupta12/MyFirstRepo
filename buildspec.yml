@@ -27,7 +27,7 @@ phases:
   post_build:
     commands:
         - |
-        if [ "$Environment" = "QA" ]; then
+        if [[ "$Environment" = "QA" ]]; then
             echo "if condition working"
         fi   
 
