@@ -1,5 +1,15 @@
 version: 0.0
 os: linux
+permissions:
+  - object: deploy-scripts/backup.sh
+    pattern: '**'
+    mode: '0755'
+    owner: root
+    group: root
+    type:
+      - file
+      - directory
+  
 files:
   - source: /
     destination: /opt/Artifacts
