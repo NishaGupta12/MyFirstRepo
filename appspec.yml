@@ -3,7 +3,7 @@ os: linux
 permissions:
   - object: deploy-scripts/backup.sh
     pattern: '**'
-    mode: '0755'
+    mode: '0777'
     owner: root
     group: root
     type:
@@ -15,7 +15,6 @@ files:
     destination: /opt/Artifacts
 hooks:
   BeforeInstall:
-    - location: deploy-scripts/BeforeInstall.sh
     - location: deploy-scripts/backup.sh
   ApplicationStart:
     - location: deploy-scripts/ApplicationStart.sh
