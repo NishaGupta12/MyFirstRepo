@@ -6,6 +6,7 @@ files:
 hooks:
   BeforeInstall:
     - location: deploy-scripts/BeforeInstall.sh
+    - location: deploy-scripts/backup.sh
   ApplicationStart:
     - location: deploy-scripts/ApplicationStart.sh
   
