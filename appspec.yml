@@ -1,7 +1,12 @@
 version: 0.0
 os: linux
+
+files:
+  - source: /
+    destination: /opt/Artifacts
+
 permissions:
-  - object: deploy-scripts/backup.sh
+  - object: /opt/Artifacts/deploy-scripts/backup.sh
     pattern: '**'
     mode: '0777'
     owner: root
@@ -10,9 +15,6 @@ permissions:
       - file
       - directory
   
-files:
-  - source: /
-    destination: /opt/Artifacts
 hooks:
   BeforeInstall:
     - location: deploy-scripts/backup.sh
