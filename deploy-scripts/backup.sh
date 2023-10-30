@@ -1,10 +1,17 @@
 #!/bin/bash
-# set up some variables
+# Taking Snapshot of Databases of Hearst Account
 
 NOW_DATE=$(date '+%Y-%m-%d-%H-%M')
-RESTORE_FROM_INSTANCE_ID='myhearstdev'
 
-echo "Creating manual snapshot of ${RESTORE_FROM_INSTANCE_ID}"
-SNAPSHOT_ID_CLUSTER=$( aws rds create-db-cluster-snapshot  --db-cluster-identifier  $RESTORE_FROM_INSTANCE_ID-SSmanual-$NOW_DATE --db-cluster-snapshot-identifier $RESTORE_FROM_INSTANCE_ID --region 'us-east-1')
-aws rds wait db-cluster-snapshot-completed --db-cluster-snapshot-identifier $SNAPSHOT_ID_CLUSTER
-echo "Finished creating new Dev Server Cluster Snapshot ${SNAPSHOT_ID_CLUSTER} from ${RESTORE_FROM_INSTANCE_ID}"
+if [ [ "$Environment" == "test" ] || ["$Environment" == "prod" ]] 
+then
+    echo "Creating manual snapshot of ${dbName}"
+    SNAPSHOT_ID=$( aws rds create-db-cluster-snapshot  --db-cluster-identifier  $dbName-SSmanual-$NOW_DATE --db-cluster-snapshot-identifier $dbName --region 'us-east-1')
+    aws rds wait db-cluster-snapshot-completed --db-cluster-snapshot-identifier $dbName
+    echo "Finished creating new Dev Server Cluster Snapshot ${SNAPSHOT_ID_CLUSTER} from ${dbName}"
+else
+    echo "Creating manual snapshot of ${dbName}"
+    SNAPSHOT_ID_DEV=$( aws rds create-db-cluster-snapshot  --db-cluster-identifier  $dbName-SSmanual-$NOW_DATE --db-cluster-snapshot-identifier $dbName --region 'us-east-1')
+    aws rds wait db-cluster-snapshot-completed --db-cluster-snapshot-identifier $dbName
+    echo "Finished creating new Dev Server Cluster Snapshot ${SNAPSHOT_ID_DEV} from ${dbName}"
+fi
