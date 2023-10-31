@@ -10,8 +10,11 @@ env:
      JDBCPassword: "/jdbc/default/password"
      
   secrets-manager:
-    HTS_MHSReg: $Environment/rainbowcred:hts.myhearst.services.region
-    HTS_MHSEnv: $Environment/rainbowcred:hts.myhearst.services.environment
+      qa_rds_cluster: "$Environment:QA/rainbowcred:qa_rds_cluster"
+      ec2hostname: "$Environment:QA/rainbowcred:ec2hostname"
+  exported-variables:
+      - qa_rds_cluster
+      - ec2hostname
 phases:  
   pre_build:
     commands:
