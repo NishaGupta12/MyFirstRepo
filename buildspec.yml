@@ -12,9 +12,7 @@ env:
   secrets-manager:
       qa_rds_cluster: "$Environment/rainbowcred:qa_rds_cluster"
       ec2hostname: "$Environment/rainbowcred:ec2hostname"
-  exported-variables:
-      - BuildVariables.qa_rds_cluster
-      - BuildVariables.ec2hostname
+
 phases:  
   pre_build:
     commands:
@@ -32,6 +30,7 @@ phases:
         - |
           if [[ "$Environment" == "QA" ]] || [[if "$Environment" == "Prod"]]; then 
            echo "if condition working" 
+           echo $ec2hostname
           fi   
 
     finally:
