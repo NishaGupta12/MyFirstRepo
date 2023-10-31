@@ -4,7 +4,8 @@
 NOW_DATE=$(date '+%Y-%m-%d-%H-%M')
 echo "this is testing"
 
-echo $ec2hostname
-echo $qa_rds_Cluster
+echo $DEPLOY_ENV
+echo $DEPLOY_ENV
+
 
 
