@@ -4,7 +4,7 @@
 NOW_DATE=$(date '+%Y-%m-%d-%H-%M')
 echo "this is testing"
 
-export DEPLOY_ENV=#{BuildVariable.ec2hostname}
+export DEPLOY_ENV=#{BuildVariables.ec2hostname}
 
 echo $DEPLOY_ENV
 echo $DEPLOY_ENV
