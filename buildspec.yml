@@ -12,6 +12,9 @@ env:
   secrets-manager:
       qa_rds_cluster: "$Environment/rainbowcred:qa_rds_cluster"
       ec2hostname: "$Environment/rainbowcred:ec2hostname"
+  exported-variables:
+    - ec2hostname
+      
 
 phases:  
   pre_build:
@@ -23,7 +26,7 @@ phases:
     commands:
        - echo Build started on 'date'
        - echo "$ec2hostname"
-       - export DEPLOY_ENV=$ec2hostname
+       
 
 
      
