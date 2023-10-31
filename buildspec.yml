@@ -13,8 +13,8 @@ env:
       qa_rds_cluster: "$Environment/rainbowcred:qa_rds_cluster"
       ec2hostname: "$Environment/rainbowcred:ec2hostname"
   exported-variables:
-      - qa_rds_cluster
-      - ec2hostname
+      - BuildVariables.qa_rds_cluster
+      - BuildVariables.ec2hostname
 phases:  
   pre_build:
     commands:
