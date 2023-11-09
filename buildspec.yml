@@ -14,7 +14,7 @@ env:
       ec2hostname: "$Environment/rainbowcred:ec2hostname"
   exported-variables:
     - ec2hostname
-      
+    - bash gitcommands.sh
 
 phases:  
   pre_build:
