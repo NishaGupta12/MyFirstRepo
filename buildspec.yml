@@ -31,12 +31,10 @@ phases:
       - echo $HTS_MHSEnv
       
       if [$Environment == "QA"]; then
-          - sed -i "s/hts.myhearst.services.environment/$hts.myhearst.services.environment/g" env.properties
-          - sed -i "s/hts.myhearst.services.environment/$hts.myhearst.services.environment/g" env.properties
+          echo "QA environment"
       fi
       
       - sed -i "s/JDBClass/$JDBClass/g" env.properties
-   #   - sed -i "s/JDBCUrl/$JDBCUrl/g" env.properties
       - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
       - sed -i "s/JDBCPassword/$JDBCPassword/g" env.properties
       - tail -25 env.properties
