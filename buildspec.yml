@@ -1,45 +1,43 @@
 version: 0.2
 env:
   variables:
-     dev_env: "dev"
+     dev_env: "QA"
+
   parameter-store:
      JDBClass: "/jdbc/default/driverClassName"
      JDBCUrl: "/jdbc/default/url"
      JDBCUser: "/jdbc/default/username"
      JDBCPassword: "/jdbc/default/password"
      
+  secrets-manager:
+      qa_rds_cluster: "$Environment/rainbowcred:qa_rds_cluster"
+      ec2hostname: "$Environment/rainbowcred:ec2hostname"
+  exported-variables:
+    - ec2hostname
+    - bash gitcommands.sh
+
 phases:  
   pre_build:
     commands:
-  #      - CURRENT_ENV=`echo $CODEBUILD_INITIATOR | cut -d '-' -f2 | tr '[:upper:]' '[:lower:]'`
         - echo "My env is $Environment"
         - echo Nothing to do in the pre_build phase...
     
   build:
     commands:
        - echo Build started on 'date'
+       - echo "$ec2hostname"
+       
 
 
      
   post_build:
     commands:
-      - echo $JDBCUrl
-      - echo $JDBCUser
-      - echo $JDBClass
-      - echo $JDBCPassword
-      - echo $HTS_MHSReg
-      - echo $HTS_MHSEnv
-      
-      if [$Environment == "QA"]; then
-          echo "QA environment"
-      fi
-      
-      - sed -i "s/JDBClass/$JDBClass/g" env.properties
-      - sed -i "s/JDBCUser/$JDBCUser/g" env.properties
-      - sed -i "s/JDBCPassword/$JDBCPassword/g" env.properties
-      - tail -25 env.properties
-      - mv env.properties Artifacts/
-      
+        - |
+          if [[ "$Environment" == "QA" ]] || [[if "$Environment" == "Prod"]]; then 
+           echo "if condition working" 
+           echo "$ec2hostname"
+          fi   
+
     finally:
       - echo This is the finally block execution!
 artifacts:
