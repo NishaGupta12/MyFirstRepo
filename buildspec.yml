@@ -1,7 +1,7 @@
 version: 0.2
 env:
   variables:
-     dev_env: "QA"
+     dev_env: "QA" 
 
   parameter-store:
      JDBClass: "/jdbc/default/driverClassName"
