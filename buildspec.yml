@@ -12,9 +12,9 @@ env:
   secrets-manager:
    #   qa_rds_cluster: "$Environment/rainbowcred:qa_rds_cluster"
       ec2hostname: "$Environment/rainbowcred:ec2hostname"
-  exported-variables:
-    - ec2hostname
-    - bash gitcommands.sh
+#  exported-variables:
+ #   - ec2hostname
+  #  - bash gitcommands.sh
 
 phases:  
   pre_build:
